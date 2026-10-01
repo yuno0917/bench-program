@@ -47,16 +47,15 @@
 
 <header class="site-header">
   <div class="wrap">
-    <p class="eyebrow">無料・登録不要</p>
     <h1>ベンチプレス プログラムメーカー</h1>
-    <p class="lead">ベンチプレスのMAXを入れるだけで、ベンチプレス専用の4〜12週間プログラムを自動で作ります。目的、週の回数、苦手なところに合わせて、毎回の重さ、ウォームアップ、プレートの付け方、補助種目まで出します。決め方には、それぞれ根拠の研究をつけています。</p>
+    <p class="lead">MAXを入れるだけで、ベンチプレス専用の4〜12週間プログラムを作ります。</p>
   </div>
 </header>
 
 <main class="wrap">
 
   <section class="card" id="form-section" aria-labelledby="form-title">
-    <h2 id="form-title"><span class="step-num">1</span>あなたの条件</h2>
+    <h2 id="form-title">あなたの条件</h2>
     <form id="prog-form" novalidate>
       <p class="error" id="form-error" role="alert" hidden></p>
 
@@ -75,7 +74,7 @@
             <span class="times">×</span>
             <span class="num"><input type="number" name="liftR" inputmode="numeric" min="1" max="20" step="1" placeholder="6" aria-label="回数"><span class="unit">rep</span></span>
             <p class="hint" id="est-out" aria-live="polite"></p>
-            <p class="hint">限界まで挙げた回数を入れます。10回を超える場合は、10回として計算します（Brzycki の式）。</p>
+            <p class="hint">限界まで挙げた回数を入れます（10回まで）。</p>
           </div>
           <span class="hint">胸で止めずに挙げたMAXを入れてください。</span>
         </div>
@@ -87,25 +86,25 @@
             <label><input type="radio" name="sex" value="female"><span>女性</span></label>
           </div>
           <span class="num"><input type="number" name="bw" inputmode="decimal" min="30" max="200" step="0.1" placeholder="65" aria-label="体重（kg）"><span class="unit">kg</span></span>
-          <span class="hint" id="level-hint" aria-live="polite">体重を入れると、レベルの目安を表示します。</span>
+          <span class="hint" id="level-hint" aria-live="polite">体重を入れると、レベルの目安が出ます。</span>
         </div>
       </div>
 
       <fieldset>
         <legend>レベル</legend>
         <div class="seg">
-          <label><input type="radio" name="level" value="beginner" checked><span>初心者<small>男性は体重の1.0倍未満・女性は0.7倍未満</small></span></label>
-          <label><input type="radio" name="level" value="intermediate"><span>中級者<small>男性は1.0〜1.3倍・女性は0.7〜0.9倍</small></span></label>
-          <label><input type="radio" name="level" value="advanced"><span>上級者<small>男性は1.3倍以上・女性は0.9倍以上</small></span></label>
+          <label><input type="radio" name="level" value="beginner" checked><span>初心者</span></label>
+          <label><input type="radio" name="level" value="intermediate"><span>中級者</span></label>
+          <label><input type="radio" name="level" value="advanced"><span>上級者</span></label>
         </div>
       </fieldset>
 
       <fieldset>
         <legend>目的</legend>
         <div class="seg">
-          <label><input type="radio" name="goal" value="strength" checked><span>MAXを伸ばす<small>最後の週にMAXを測る</small></span></label>
-          <label><input type="radio" name="goal" value="hypertrophy"><span>胸を大きくする<small>回数を多めにして量を積む</small></span></label>
-          <label><input type="radio" name="goal" value="both"><span>両方<small>重い日と回数の日を分ける</small></span></label>
+          <label><input type="radio" name="goal" value="strength" checked><span>MAXを伸ばす</span></label>
+          <label><input type="radio" name="goal" value="hypertrophy"><span>胸を大きくする</span></label>
+          <label><input type="radio" name="goal" value="both"><span>両方</span></label>
         </div>
       </fieldset>
 
@@ -139,13 +138,12 @@
             <option value="bottom">胸の近くで止まる</option>
             <option value="top">腕を伸ばしきる手前で止まる</option>
           </select>
-          <span class="hint">選ぶと、週に1回、苦手に合わせた種目が入ります。</span>
         </label>
         <fieldset class="field">
           <legend>トレーニングする場所</legend>
           <div class="seg">
-            <label><input type="radio" name="equip" value="gym" checked><span>ジム<small>マシンやケーブルが使える</small></span></label>
-            <label><input type="radio" name="equip" value="rack"><span>ベンチとダンベルだけ<small>マシンがない</small></span></label>
+            <label><input type="radio" name="equip" value="gym" checked><span>ジム</span></label>
+            <label><input type="radio" name="equip" value="rack"><span>ベンチとダンベルだけ</span></label>
           </div>
         </fieldset>
       </div>
@@ -156,22 +154,19 @@
 
   <section id="result" aria-labelledby="result-title" hidden>
     <div class="card">
-      <h2 id="result-title"><span class="step-num">2</span>あなたのベンチプレスプログラム</h2>
+      <h2 id="result-title">あなたのベンチプレスプログラム</h2>
       <p class="summary-meta" id="summary-meta"></p>
       <ul class="summary-list fact-list" id="fact-list"></ul>
-      <p class="progress-row"><span id="progress-text"></span><button type="button" class="link-btn" id="reset-done" hidden>チェックを消す</button></p>
-      <p class="hint">「やった」のチェックは、この端末のブラウザだけに保存されます。</p>
-      <p class="more-link"><a id="calc-link" href="/bench-goal/">この期間で何kg伸びそうか、ベンチプレス伸び計算機で見る</a></p>
-
-      <div class="rules">
-        <p><strong>重さの決め方：</strong>表の重さは、ベンチプレスで何%なら何回できるかを調べた研究の表から、回数と余力をもとに出した目安です。1セット目で余力が指定より2回以上多ければ、次のセットから2.5kg上げます。余力がなければ2.5kg下げます。<a class="cite-chip" href="/bench-goal/evidence.html#reps">根拠</a><a class="cite-chip" href="/bench-goal/evidence.html#autoreg">根拠</a></p>
-        <p><strong>予定の回数ができなかったら：</strong>その日は無理をせずに終えて、次回は同じ重さでやり直します。2回続けてできなければ、MAXを5%下げて作り直します。<span class="cite-chip cite-none">一般的な目安</span></p>
-        <p><strong>下ろす位置：</strong>バーは胸につくまでしっかり下ろします。<a class="cite-chip" href="/bench-goal/evidence.html#rom">根拠</a></p>
-      </div>
-
+      <ul class="rules">
+        <li>1セット目の余力が指定より2回以上多ければ、次のセットから2.5kg上げます。余力がなければ2.5kg下げます。<a class="cite-chip" href="/bench-goal/evidence.html#autoreg">根拠</a></li>
+        <li>予定の回数ができなかったら、次回も同じ重さで行います。2回続けてできなければ、MAXを5%下げて作り直します。</li>
+        <li>バーは胸につくまで下ろします。<a class="cite-chip" href="/bench-goal/evidence.html#rom">根拠</a></li>
+      </ul>
+      <p class="progress-row" id="progress-row" hidden><span id="progress-text"></span><button type="button" class="link-btn" id="reset-done">チェックを消す</button></p>
       <div class="actions">
-        <button type="button" class="secondary" id="share-btn">このプログラムのリンクをコピー</button>
-        <button type="button" class="secondary" id="print-btn">印刷する</button>
+        <button type="button" class="secondary" id="share-btn">リンクをコピー</button>
+        <button type="button" class="secondary" id="print-btn">印刷</button>
+        <a id="calc-link" href="/bench-goal/">伸びの予測を見る</a>
       </div>
       <div class="share-box" id="share-box" hidden>
         <input type="text" id="share-url" readonly aria-label="共有リンク">
@@ -181,12 +176,13 @@
 
     <div class="tabs" role="tablist" aria-label="週を選ぶ" id="week-tabs"></div>
     <div id="week-panels"></div>
-    <p class="warmup-note">プレートは、20kgのバーに付ける片側の重さ（kg）です。重い重さは、補助者をつけるかセーフティバーを使って行ってください。痛みが出た種目は中止してください。スクワットとデッドリフトも組みたい場合は、<a href="/big3-menu/">BIG3 メニューメーカー</a>を使ってください。</p>
   </section>
 
   <section class="card article" aria-labelledby="how-title">
     <h2 id="how-title">このプログラムの決め方</h2>
-    <p>研究でわかっていることは、<a href="/bench-goal/evidence.html">ベンチプレスの研究まとめ</a>の該当する場所にリンクしています。研究で確かめられていない部分は「一般的な目安」と書いています。</p>
+    <p>重さは、ベンチプレスで何%なら何回できるかを調べた研究の表から、回数と余力をもとに決めています。それぞれの決め方の根拠は、下の一覧と<a href="/bench-goal/evidence.html">ベンチプレスの研究まとめ</a>にあります。研究で確かめられていない部分は「一般的な目安」と書いています。</p>
+    <details class="more">
+    <summary>決め方と根拠の一覧を見る</summary>
     <div class="table-wrap">
       <table class="data-table">
         <caption>決め方と根拠</caption>
@@ -205,29 +201,29 @@
           <tr><td>最後の週は量を減らしてから測る</td><td><a href="/squat-goal/evidence.html#taper">量を減らしてから測ったパワーリフティング選手が伸びた</a></td></tr>
           <tr><td>重さは、レベルに合わせて少しずつ重くする</td><td><a href="/bench-goal/evidence.html#rate">体重に比べてMAXが軽い人ほど速く伸びた</a>。控えめなペースで見込んでいます</td></tr>
           <tr><td>苦手に合わせた種目、ナローグリップの重さ（約92%）</td><td>一般的な目安（<a href="#weak">下で説明</a>）</td></tr>
-          <tr><td>ウォームアップの段階、休憩の長さ、補助種目の選び方、段階の週の配分</td><td>一般的な目安</td></tr>
+          <tr><td>ウォームアップの段階、休憩の長さ、補助種目の選び方、段階の週の配分、予定の回数ができなかったときの戻し方</td><td>一般的な目安</td></tr>
         </tbody>
       </table>
     </div>
+    </details>
 
     <h2 id="weak">苦手に合わせた種目について</h2>
-    <p>苦手なところに合わせて種目を変える方法は、指導の現場でよく使われています。ただし、その効果を比べた研究は見つかりませんでした。目安として使ってください。</p>
+    <p>「苦手なところ」を選ぶと、週に1回、次の種目が入ります。指導の現場でよく使われる方法ですが、効果を比べた研究は見つかりませんでした。目安として使ってください。</p>
     <ul>
       <li><strong>胸の近くで止まる → ポーズベンチプレス：</strong>胸で1〜2秒止めてから挙げ、反動を使わずに挙げる練習をします。</li>
       <li><strong>腕を伸ばしきる手前で止まる → ナローグリップベンチプレス：</strong>手幅を狭くすると、二の腕の裏（上腕三頭筋）をよく使います。手幅の研究では、狭い手幅だと挙げられる重さが軽くなりました<a class="cite-chip" href="/bench-goal/evidence.html#grip">根拠</a>。重さは、ベンチプレスのMAXの約92%をその種目のMAXとして計算しています。</li>
     </ul>
 
     <h2>よくある質問</h2>
-    <h3>ベンチプレス伸び計算機との違いは？</h3>
-    <p><a href="/bench-goal/">ベンチプレス伸び計算機</a>は、何週間で何kg伸びるかの予測と、MAXの計算式が中心です。こちらは、目的、週の回数、苦手なところに合わせたプログラムを作ります。</p>
-    <h3>MAXは、大会のように胸で止めて測った重さでもいいですか？</h3>
-    <p>このツールは、胸で止めずに挙げたMAXを前提にしています。胸で止めて測ったMAXしかわからない場合は、その重さを約1.08倍した値を入れると近くなります。<a class="cite-chip" href="/bench-goal/evidence.html#pause">根拠</a></p>
-    <h3>手幅はどれくらいがいいですか？</h3>
-    <p>MAXを伸ばすなら、中くらいから広めの手幅が一般的です。狭い手幅では挙げられる重さが軽くなり、広い手幅では二の腕の裏の働きが小さくなりました。肩に痛みが出る場合は、無理に広げないでください。<a class="cite-chip" href="/bench-goal/evidence.html#grip">根拠</a></p>
-    <h3>プログラムが終わったら？</h3>
-    <p>最後の週の測定か回数チェックの結果を、その日のカードに入れてください。新しいMAXで次のプログラムを作れます。</p>
-    <h3>フォームがわかりません。</h3>
-    <p><a href="/big3-menu/articles/bench-form.html">ベンチプレスのフォームの記事</a>で、肩を痛めないための基本を紹介しています。</p>
+    <div class="faq">
+      <details><summary>ベンチプレス伸び計算機との違いは？</summary><p><a href="/bench-goal/">ベンチプレス伸び計算機</a>は、何週間で何kg伸びるかの予測と、MAXの計算式が中心です。こちらは、目的、週の回数、苦手なところに合わせたプログラムを作ります。</p></details>
+      <details><summary>MAXは、大会のように胸で止めて測った重さでもいいですか？</summary><p>このツールは、胸で止めずに挙げたMAXを前提にしています。胸で止めて測ったMAXしかわからない場合は、その重さを約1.08倍した値を入れると近くなります。<a class="cite-chip" href="/bench-goal/evidence.html#pause">根拠</a></p></details>
+      <details><summary>手幅はどれくらいがいいですか？</summary><p>MAXを伸ばすなら、中くらいから広めの手幅が一般的です。狭い手幅では挙げられる重さが軽くなり、広い手幅では二の腕の裏の働きが小さくなりました。肩に痛みが出る場合は、無理に広げないでください。<a class="cite-chip" href="/bench-goal/evidence.html#grip">根拠</a></p></details>
+      <details><summary>プログラムが終わったら？</summary><p>最後の週の測定か回数チェックの結果を、その日のカードに入れてください。新しいMAXで次のプログラムを作れます。</p></details>
+      <details><summary>フォームがわかりません。</summary><p><a href="/big3-menu/articles/bench-form.html">ベンチプレスのフォームの記事</a>で、肩を痛めないための基本を紹介しています。</p></details>
+      <details><summary>「やった」のチェックはどこに保存されますか？</summary><p>この端末のブラウザの中だけに保存されます。ほかの端末には引き継がれません。</p></details>
+      <details><summary>スクワットとデッドリフトも組みたい。</summary><p><a href="/big3-menu/">BIG3 メニューメーカー</a>で、3種目をまとめて組めます。</p></details>
+    </div>
 
     <h2 id="disclaimer">免責事項</h2>
     <div class="disclaimer">
